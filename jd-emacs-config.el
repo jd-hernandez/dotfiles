@@ -15,7 +15,7 @@
   (package-refresh-contents))
 
 ;; ac-nrepl ack-and-a-half clojurescript-mode gitconfig-mode
-(defvar my-packages '(4clojure ac-cider ac-haskell-process ac-ispell ac-math
+(defvar my-packages '(ac-cider ac-haskell-process ac-ispell ac-math
                       ac-nrepl ace-jump-buffer ace-jump-mode ace-window
                       ack-and-a-half anaconda-mode android-mode anzu async
                       atom-dark-theme atom-one-dark-theme auctex auto-capitalize
