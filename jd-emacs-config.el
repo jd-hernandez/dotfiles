@@ -1,4 +1,4 @@
-;;; jhernandez-emacs-config.el --- 24/01/2016
+;;; jd-emacs-config.el --- 24/01/2016
 ;;; Commentary:
 ;;; Code:
 
