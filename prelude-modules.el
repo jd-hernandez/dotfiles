@@ -1,9 +1,10 @@
-;;; Uncomment the modules you'd like to use and restart Prelude afterwards
+;;; prelude-modules.el -- Uncomment the modules you'd like to use and restart Prelude afterwards
+;;; Commentary:
 
 ;; Emacs IRC client
 ;; (require 'prelude-erc)
 (require 'prelude-ido) ;; Super charges Emacs completion for C-x C-f and more
-;; (require 'prelude-helm) ;; Interface for narrowing and search
+(require 'prelude-helm) ;; Interface for narrowing and search
 (require 'prelude-company)
 ;; (require 'prelude-key-chord) ;; Binds useful features to key combinations
 ;; (require 'prelude-mediawiki)
@@ -11,20 +12,20 @@
 
 ;;; Programming languages support
 (require 'prelude-c)
-;; (require 'prelude-clojure)
+(require 'prelude-clojure)
 ;; (require 'prelude-coffee)
 ;; (require 'prelude-common-lisp)
 (require 'prelude-css)
 (require 'prelude-emacs-lisp)
-;; (require 'prelude-erlang)
-;; (require 'prelude-haskell)
+(require 'prelude-erlang)
+(require 'prelude-haskell)
 (require 'prelude-js)
-;; (require 'prelude-latex)
+(require 'prelude-latex)
 (require 'prelude-lisp)
 (require 'prelude-org) ;; Org-mode helps you keep TODO lists, notes and more
 ;; (require 'prelude-perl)
-;; (require 'prelude-python)
-(require 'prelude-ruby)
+(require 'prelude-python)
+;; (require 'prelude-ruby)
 ;; (require 'prelude-scala)
 ;; (require 'prelude-scheme)
 (require 'prelude-shell)
