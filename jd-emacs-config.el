@@ -1,4 +1,4 @@
-;;; jhernandez-emacs-config.el -- 07/07/2015 version
+;;; jhernandez-emacs-config.el --- 24/01/2016
 ;;; Commentary:
 ;;; Code:
 
@@ -14,32 +14,31 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; ac-nrepl ack-and-a-half clojurescript-mode gitconfig-mode
-(defvar my-packages '(ac-cider ac-haskell-process ac-ispell ac-math
-                      ac-nrepl ace-jump-buffer ace-jump-mode ace-window
-                      ack-and-a-half anaconda-mode android-mode anzu async
-                      atom-dark-theme atom-one-dark-theme auctex auto-capitalize
-                      auto-complete auto-indent-mode avy beacon browse-kill-ring
-                      bubbleberry-theme cider clj-refactor clojure-mode
-                      clojurescript-mode clojure-snippets company dash diff-hl
-                      diminish discover-my-major easy-kill edn elisp-slime-nav
-                      epl exec-path-from-shell expand-region f
-                      find-file-in-project flx flx-ido flycheck-clojure
-                      flycheck-package gh gist git-timemachine git-commit
-                      gitconfig-mode gitignore-mode god-mode grizzl guru-mode
-                      haskell-mode helm helm-core helm-projectile hydra
-                      idle-highlight-mode ido-completing-read+ ido-ubiquitous
-                      inf-ruby inflections js2-mode json-mode json-reformat
-                      json-rpc json-snatcher latex-pretty-symbols let-alist
-                      logito magit magit-popup makey markdown-mode
-                      math-symbol-lists move-text multiple-cursors nlinum
-                      operate-on-number ov paredit pcache peg pkg-info popup
-                      pretty-mode projectile pythonic queue rainbow-delimiters
-                      rainbow-mode request rich-minority ruby-tools rust-mode s
-                      seq slamhound smart-mode-line smartparens smartrep smex
-                      smooth-scroll spinner swiper undo-tree vkill
-                      volatile-highlights web-mode with-editor yari yasnippet
-                      zenburn-theme zop-to-char))
+(defvar my-packages '(4clojure ac-anaconda ac-cider ac-haskell-process ac-ispell
+                      ac-math ace-jump-buffer ace-jump-mode ace-window ag
+                      anaconda-mode android-mode anzu async atom-dark-theme
+                      atom-one-dark-theme auctex auto-capitalize auto-complete
+                      auto-indent-mode avy beacon browse-kill-ring cider
+                      clj-refactor clojure-mode clojure-mode-extra-font-locking
+                      clojure-snippets company cuda-mode dash diff-hl diminish
+                      discover-my-major easy-kill edn elisp-slime-nav epl
+                      exec-path-from-shell expand-region f find-file-in-project
+                      flx flx-ido flycheck-clojure flycheck-package gh gist
+                      git-timemachine git-commit gitconfig-mode gitignore-mode
+                      god-mode grizzl guru-mode haskell-mode helm helm-core
+                      helm-projectile hydra idle-highlight-mode
+                      ido-completing-read+ ido-ubiquitous inf-ruby inflections
+                      js2-mode json-mode json-reformat json-rpc json-snatcher
+                      latex-pretty-symbols let-alist logito magit magit-popup
+                      makey markdown-mode math-symbol-lists move-text
+                      multiple-cursors nlinum operate-on-number ov paredit
+                      pcache peg pkg-info popup pretty-mode projectile pythonic
+                      queue rainbow-delimiters rainbow-mode request
+                      rich-minority ruby-tools rust-mode s seq slamhound
+                      smart-mode-line smartparens smartrep smex smooth-scroll
+                      spinner swiper undo-tree vkill volatile-highlights
+                      web-mode with-editor yari yasnippet zenburn-theme
+                      zop-to-char))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -90,10 +89,22 @@
 (add-to-list 'same-window-buffer-names "*cider*")
 
 ;; auto complete
-(require 'ac-nrepl)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete" '(add-to-list 'ac-modes 'cider-repl-mode))
+(require 'ac-cider)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-setup)
+(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+(eval-after-load "auto-complete"
+  '(progn
+     (add-to-list 'ac-modes 'cider-mode)
+     (add-to-list 'ac-modes 'cider-repl-mode)))
+
+
+(defun set-auto-complete-as-completion-at-point-function ()
+  "Tab completion in CIDER buffers."
+  (setq completion-at-point-functions '(auto-complete)))
+
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -175,5 +186,5 @@
   '(default ((t (:family "Source Code Pro" :foundry "unknown"
                          :slant normal :weight normal :height 140 :width normal)))))
 
-(provide 'jhernandez-emacs-config)
-;;; jhernandez-emacs-config ends here
+(provide 'jd-emacs-config)
+;;; jd-emacs-config ends here
