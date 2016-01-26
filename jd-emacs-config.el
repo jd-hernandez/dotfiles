@@ -1,4 +1,4 @@
-;;; jd-emacs-config.el --- 24/01/2016
+;;; jhernandez-emacs-config.el --- 24/01/2016
 ;;; Commentary:
 ;;; Code:
 
@@ -86,6 +86,9 @@
             (clojure-font-lock-setup)
             (font-lock-mode t)))
 
+;; sane indentation in Clojure mode
+(setq clojure-indent-style ':always-indent)
+
 (add-to-list 'same-window-buffer-names "*cider*")
 
 ;; auto complete
@@ -97,7 +100,6 @@
   '(progn
      (add-to-list 'ac-modes 'cider-mode)
      (add-to-list 'ac-modes 'cider-repl-mode)))
-
 
 (defun set-auto-complete-as-completion-at-point-function ()
   "Tab completion in CIDER buffers."
