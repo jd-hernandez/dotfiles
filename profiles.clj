@@ -1,18 +1,8 @@
 {:dev {:plugins [[cider/cider-nrepl "0.11.0-SNAPSHOT"]
                  [refactor-nrepl "2.0.0-SNAPSHOT"]
                  [lein-pprint "1.1.1"]]
-       :dependencies [[org.clojure/tools.nrepl "0.2.12"]
-                      [acyclic/squiggly-clojure "0.1.4"]
-                      ^:replace [org.clojure/tools.nrepl "0.2.12"]
-                      [org.clojure/core.typed "0.3.7"]
-                      [jonase/eastwood "0.2.1" :exclusions [org.clojure/clojure]]
-                      [jonase/kibit "0.1.2"]]}
+       :dependencies [[org.clojure/tools.nrepl "0.2.12"]]}
        :user {:plugins [[cider/cider-nrepl "0.11.0-SNAPSHOT"]
-                  [refactor-nrepl "2.0.0-SNAPSHOT"]
-                  [lein-pprint "1.1.1"]]
-        :dependencies [[org.clojure/tools.nrepl "0.2.12"]
-                       [acyclic/squiggly-clojure "0.1.4"]
-                       ^:replace [org.clojure/tools.nrepl "0.2.12"]
-                       [org.clojure/core.typed "0.3.7"]
-                       [jonase/eastwood "0.2.1" :exclusions [org.clojure/clojure]]
-                       [jonase/kibit "0.1.2"]]}}
+                        [refactor-nrepl "2.0.0-SNAPSHOT"]
+                        [lein-pprint "1.1.1"]]
+              :dependencies [[org.clojure/tools.nrepl "0.2.12"]]}}
