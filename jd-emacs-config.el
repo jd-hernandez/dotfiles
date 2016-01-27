@@ -1,4 +1,4 @@
-;;; jhernandez-emacs-config.el --- 24/01/2016
+;;; jd-emacs-config.el --- 26/01/2016
 ;;; Commentary:
 ;;; Code:
 
@@ -23,22 +23,22 @@
                       clojure-snippets company cuda-mode dash diff-hl diminish
                       discover-my-major easy-kill edn elisp-slime-nav epl
                       exec-path-from-shell expand-region f find-file-in-project
-                      flx flx-ido flycheck-clojure flycheck-package gh gist
-                      git-timemachine git-commit gitconfig-mode gitignore-mode
-                      god-mode grizzl guru-mode haskell-mode helm helm-core
-                      helm-projectile hydra idle-highlight-mode
-                      ido-completing-read+ ido-ubiquitous inf-ruby inflections
-                      js2-mode json-mode json-reformat json-rpc json-snatcher
-                      latex-pretty-symbols let-alist logito magit magit-popup
-                      makey markdown-mode math-symbol-lists move-text
-                      multiple-cursors nlinum operate-on-number ov paredit
-                      pcache peg pkg-info popup pretty-mode projectile pythonic
-                      queue rainbow-delimiters rainbow-mode request
-                      rich-minority ruby-tools rust-mode s seq slamhound
-                      smart-mode-line smartparens smartrep smex smooth-scroll
-                      spinner swiper undo-tree vkill volatile-highlights
-                      web-mode with-editor yari yasnippet zenburn-theme
-                      zop-to-char))
+                      flx flx-ido flycheck-clojure flycheck-package
+                      flycheck-pos-tip gh gist git-timemachine git-commit
+                      gitconfig-mode gitignore-mode god-mode grizzl guru-mode
+                      haskell-mode helm helm-core helm-projectile hydra
+                      idle-highlight-mode ido-completing-read+ ido-ubiquitous
+                      inf-ruby inflections js2-mode json-mode json-reformat
+                      json-rpc json-snatcher latex-pretty-symbols let-alist
+                      logito magit magit-popup makey markdown-mode
+                      math-symbol-lists move-text multiple-cursors nlinum
+                      operate-on-number ov paredit pcache peg pkg-info popup
+                      pretty-mode projectile pythonic queue rainbow-delimiters
+                      rainbow-mode request rich-minority ruby-tools rust-mode s
+                      seq slamhound smart-mode-line smartparens smartrep smex
+                      smooth-scroll spinner swiper undo-tree vkill
+                      volatile-highlights web-mode with-editor yari yasnippet
+                      zenburn-theme zop-to-char))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -104,6 +104,11 @@
 (defun set-auto-complete-as-completion-at-point-function ()
   "Tab completion in CIDER buffers."
   (setq completion-at-point-functions '(auto-complete)))
+
+;; squiggly-clojure: https://github.com/clojure-emacs/squiggly-clojure
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
+(eval-after-load 'flycheck
+  '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
 
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
