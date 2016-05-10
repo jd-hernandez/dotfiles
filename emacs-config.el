@@ -34,8 +34,8 @@
 (require 'package)
 (package-initialize)
 
-(defvar packages-used '(atom-one-dark-theme auto-indent-mode clj-refactor
-                        cljr-helm clojure-mode-extra-font-locking
+(defvar packages-used '(atom-one-dark-theme auto-indent-mode buttercup
+                        clj-refactor cljr-helm clojure-mode-extra-font-locking
                         latex-pretty-symbols markdown-mode math-symbol-lists
                         nlinum paredit paredit-everywhere pretty-mode rust-mode
                         smooth-scroll))
@@ -78,8 +78,8 @@
 (require 'company)
 (global-company-mode)
 
-(require 'pretty-mode)
-(global-pretty-mode t)
+;;(require 'pretty-mode)
+;;(global-pretty-mode t)
 
 (require 'smooth-scroll)
 (smooth-scroll-mode t)
@@ -113,7 +113,7 @@
 (setq cider-font-lock-dynamically '(macro core function var))
 (setq cider-overlays-use-font-lock t)
 
-(add-hook 'cider-repl--mode-hook #'auto-indent-mode)
+(add-hook 'cider-repl-mode-hook #'auto-indent-mode)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
