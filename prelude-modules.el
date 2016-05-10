@@ -8,6 +8,7 @@
 (require 'prelude-company)
 (require 'prelude-key-chord) ;; Binds useful features to key combinations
 ;; (require 'prelude-mediawiki)
+;; (require 'prelude-evil)
 
 ;;; Programming languages support
 (require 'prelude-c)
@@ -28,8 +29,8 @@
 ;; (require 'prelude-perl)
 (require 'prelude-python)
 ;; (require 'prelude-ruby)
-;; (require 'prelude-scala)
-;;(require 'prelude-scheme)
+(require 'prelude-scala)
+;; (require 'prelude-scheme)
 (require 'prelude-shell)
 ;; (require 'prelude-scss)
 ;; (require 'prelude-web) ;; Emacs mode for web templates
