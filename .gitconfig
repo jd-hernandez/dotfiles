@@ -1,0 +1,13 @@
+ [user]
+	email = jhernandez@nearsoft.com
+	name = jd.hernandez
+[alias]
+	unstage = reset HEAD --
+	up = pull --rebase --autostash
+	co = checkout
+	br = branch
+	st = status
+[diff]
+	indentHeuristic = on
+[merge]
+	conflictstyle = diff3
