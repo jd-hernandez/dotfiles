@@ -1,5 +1,5 @@
-[user]
-	email = jd.hernandez@gmail.com
+ [user]
+	email = jhernandez@nearsoft.com
 	name = jd.hernandez
 [alias]
 	unstage = reset HEAD --
@@ -7,14 +7,9 @@
 	co = checkout
 	br = branch
 	st = status
-[color]
-	status = auto
-	branch = auto
-	diff = auto
-	interactive = auto
 [diff]
 	indentHeuristic = on
 [merge]
 	conflictstyle = diff3
-[push]
-	default = simple
+[credential]
+	helper = osxkeychain
