@@ -13,3 +13,7 @@
 	conflictstyle = diff3
 [credential]
 	helper = osxkeychain
+[grep]
+	lineNumber = true
+[core]
+	editor = nvim
