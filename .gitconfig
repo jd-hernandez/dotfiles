@@ -3,7 +3,7 @@
 	name = jd.hernandez
 [alias]
 	unstage = reset HEAD --
-	up = pull --rebase=preserve --autostash
+	up = pull --rebase=merges --autostash
 	co = checkout
 	br = branch
 	st = status
