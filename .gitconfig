@@ -1,12 +1,15 @@
  [user]
-	email = jhernandez@nearsoft.com
+	email = jd.hernandez@gmail.com
 	name = jd.hernandez
+	# signingkey = 7501E53AD23C0574
 [alias]
 	unstage = reset HEAD --
 	up = pull --rebase=merges --autostash
 	co = checkout
 	br = branch
 	st = status
+	# cmit = commit -S -m
+	# mrg = merge -S
 [diff]
 	indentHeuristic = on
 [merge]
